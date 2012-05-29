@@ -5,13 +5,13 @@
  * The right view of SliderMenu, by default is a NavigationView
  * that it has inside a container (mainwrapper).
  *
- * @author Xevi Gallego (wozznik@gmail.com) (@wozznik) 
+ * @author Xevi Gallego (wozznik@gmail.com) (@wozznik)
  */
 
 Ext.define('SliderMenu.view.Main', {
     extend: 'Ext.navigation.View',
     xtype: 'maincard',
-    
+
     requires: [
         'SliderMenu.view.MainWrapper'
     ],
@@ -28,9 +28,9 @@ Ext.define('SliderMenu.view.Main', {
         menuWidth: 250,
 
         //You need to overwride this css class to customize the theme
-        cls: 'x-slidermenu-main', 
+        cls: 'x-slidermenu-main',
 
-        //This component is draggable 
+        //This component is draggable
         //(it allows to show or not the left menu)
         draggable:{
             direction: 'horizontal',
@@ -104,17 +104,18 @@ Ext.define('SliderMenu.view.Main', {
         var bar = this.getNavigationBar();
         if (bar.titleComponent.element){
             bar.titleComponent.element.setWidth('auto');
-        } 
-        
+        }
+
         bar.titleComponent.setTitle(title);
-        bar.refreshProxy();
+				//FIXME? sencha 2.0.1 doesnt have this method...
+        //bar.refreshProxy();
         return true;
     },
 
 
     /**
      * Closes the slide menu.
-     * 
+     *
      * @param {Ext.Number} duration: Animation duration
      * @return {Ext.Boolean} false: duration is not valid
      *                       true: otherwise
@@ -125,10 +126,10 @@ Ext.define('SliderMenu.view.Main', {
         this.swapMenu(0, duration, false); //Sets offset to 0 (close menu)
         return true;
     },
-    
+
     /**
      * Opens the slide menu.
-     * 
+     *
      * @param {Ext.Number} duration: Animation duration
      * @return {Ext.Boolean} false: duration is not valid
      *                       true: otherwise
@@ -149,7 +150,7 @@ Ext.define('SliderMenu.view.Main', {
         constraint.min.x = offsetX;
         constraint.max.x = offsetX;
         this.slideMenu(offsetX, duration);
-        
+
         if(masked){
             //open menu -> create a special mask to detects tap events
             this.setMasked({
@@ -157,7 +158,7 @@ Ext.define('SliderMenu.view.Main', {
                 listeners: {
                     tap: function(){
                         //Main (this.parent) fires a tap event only when the main is wrapped
-                        this.parent.fireEvent('tap'); 
+                        this.parent.fireEvent('tap');
                     }
                 }
             })
@@ -170,10 +171,10 @@ Ext.define('SliderMenu.view.Main', {
      * Slides the menu changing offset to 'x' with an slide animation of
      * 'duration' ms.
      * If value of 'x' or 'duration' is undefined -> return false
-     * 
+     *
      * @param {Integer} x: Value of the new offset.x
      * @param {Integer} duration: Value of the animation duration effect.
-     * 
+     *
      * @return {Boolean} If value of 'x' or 'duration' is undefined then return false
      *                   otherwise return true.
      */

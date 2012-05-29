@@ -19,16 +19,17 @@ Ext.application({
     //You must to put SliderMenu dependencies inside
     // views, controllers, stores and models
     views: [
-        'SliderMenu.view.SliderMenuContainer',
         //Add here your view dependencies
         'SliderMenuDemo.view.Option1',
         'SliderMenuDemo.view.Option2',
         'SliderMenuDemo.view.Option3',
         ],
 
+		//SliderMenu: Just need to add the controller!!
     controllers: ['SliderMenu.controller.SliderMenuController'],
+		//Default Store. You can just provide your store with storeId: MenuOptionsStore
     stores: ['SliderMenu.store.MenuOptions'],
-    models: ['SliderMenu.model.MenuOption'],
+    models: [],
 
     icon: {
         57: 'resources/icons/Icon.png',

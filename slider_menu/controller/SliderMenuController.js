@@ -2,11 +2,11 @@
  * @class SliderMenu.controller.SliderMenuController
  * @extends Ext.app.Controller
  *
- * Controller for SliderMenu. All events are controlled here. 
+ * Controller for SliderMenu. All events are controlled here.
  * So, you must implement the methods to accept each action launched
  * by Menu.
  *
- * @author Xevi Gallego (wozznik@gmail.com) (@wozznik) 
+ * @author Xevi Gallego (wozznik@gmail.com) (@wozznik)
  */
 
 Ext.define('SliderMenu.controller.SliderMenuController', {
@@ -15,8 +15,11 @@ Ext.define('SliderMenu.controller.SliderMenuController', {
     requires: [
     	'SliderMenu.view.Main',
     	'SliderMenu.view.Menu',
+			'SliderMenu.model.MenuOption',
     ],
-    
+
+    models: ['SliderMenu.model.MenuOption'],
+
     config: {
     	refs: {
     		main: 'maincard',
@@ -29,7 +32,7 @@ Ext.define('SliderMenu.controller.SliderMenuController', {
             menuButton: {
     			tap: 'onOpenMenuButtonTapped'
     		},
-            
+
     		menu: {
                 itemtap: 'onMenuOptionTapped',
                 init: 'onInitMenu',
@@ -48,7 +51,7 @@ Ext.define('SliderMenu.controller.SliderMenuController', {
     },
 
     /**
-     * When the main menu is tapped (only when it's masked -> menu is open) 
+     * When the main menu is tapped (only when it's masked -> menu is open)
      * we close slider menu
      */
     onMainTapped: function(){
@@ -59,7 +62,7 @@ Ext.define('SliderMenu.controller.SliderMenuController', {
     },
 
     /**
-     * When we push a view from Main (Ext.navigation.View), we need to hide 
+     * When we push a view from Main (Ext.navigation.View), we need to hide
      * menu button
      */
     onMainPush: function(){
@@ -67,7 +70,7 @@ Ext.define('SliderMenu.controller.SliderMenuController', {
     },
 
     /**
-     * When we pop a view from Main (Ext.navigation.View), we need to show 
+     * When we pop a view from Main (Ext.navigation.View), we need to show
      * menu button again
      */
     onMainPop: function(){
@@ -76,7 +79,7 @@ Ext.define('SliderMenu.controller.SliderMenuController', {
 
     /**
      * Fires after initialization menu.
-     * Change initial view of main to default view associated 
+     * Change initial view of main to default view associated
      * to default option
      */
     onInitMenu: function(record, index){
