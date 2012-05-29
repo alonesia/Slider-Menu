@@ -4,7 +4,7 @@ Ext.Loader.setPath({
 });
 
 Ext.Loader.setPath({
-    'SliderMenu': 'slider_menu'
+    'SliderMenu': '../slider_menu'
 });
 
 //</debug>
@@ -25,7 +25,7 @@ Ext.application({
         'SliderMenuDemo.view.Option2',
         'SliderMenuDemo.view.Option3',
         ],
-        
+
     controllers: ['SliderMenu.controller.SliderMenuController'],
     stores: ['SliderMenu.store.MenuOptions'],
     models: ['SliderMenu.model.MenuOption'],
@@ -36,7 +36,7 @@ Ext.application({
         114: 'resources/icons/Icon@2x.png',
         144: 'resources/icons/Icon~ipad@2x.png'
     },
-    
+
     phoneStartupScreen: 'resources/loading/Homescreen.jpg',
     tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
 
@@ -45,7 +45,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         var slidermenu = Ext.create('SliderMenu.view.SliderMenuContainer');
-        
+
         slidermenu.setTitle('Options...');
         slidermenu.setWidth(250);
         slidermenu.setMenuIcon('list');
